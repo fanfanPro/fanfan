@@ -36,13 +36,13 @@ public class addCartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ÓÃsessionÊµÏÖ¹ºÎï³µ
+		// ç”¨sessionå®ç°è´­ç‰©è½¦
 		HttpSession session = request.getSession();
-		//ÏÈÅĞ¶ÏsessionÓĞÃ»ÓĞÓÃ»§ĞÅÏ¢
+		//å…ˆåˆ¤æ–­sessionæœ‰æ²¡æœ‰ç”¨æˆ·ä¿¡æ¯
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		if(user==null){
-			//ÈôÓÃ»§Ã»µÇÂ¼ÔòÌø×ªµ½µÇÂ¼Ò³Ãæ
+			//è‹¥ç”¨æˆ·æ²¡ç™»å½•åˆ™è·³è½¬åˆ°ç™»å½•é¡µé¢
 			response.sendRedirect(request.getContextPath()+"/login.jsp");
 			return;
 		}
@@ -52,25 +52,24 @@ public class addCartServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		
-		Map<Product,String> cart = (Map<Product,String>)session.getAttribute("cart"); //ÓÃMap´æ´¢²úÆ·¼°ÆäÊıÁ¿
+		Map<Product,String> cart = (Map<Product,String>)session.getAttribute("cart"); //ç”¨Mapå­˜å‚¨äº§å“åŠå…¶æ•°é‡
 		
 		int num=1;
 		
 		if(cart==null){
-			//Èç¹ûÊÇµÚÒ»´Î·ÃÎÊ£¬Ã»ÓĞ¹ºÎï³µ¶ÔÏó£¬ÎÒÃÇ¾Í´´½¨ Ò»¸ö¹ºÎï³µ¶ÔÏó
-			cart = new HashMap<Product,String>();	//MapÊÇ¸ö½Ó¿Ú£¬ËùÒÔÓÃÆäÊµÏÖÀàHashMap
+			//å¦‚æœæ˜¯ç¬¬ä¸€æ¬¡è®¿é—®ï¼Œæ²¡æœ‰è´­ç‰©è½¦å¯¹è±¡ï¼Œæˆ‘ä»¬å°±åˆ›å»º ä¸€ä¸ªè´­ç‰©è½¦å¯¹è±¡
+			cart = new HashMap<Product,String>();	//Mapæ˜¯ä¸ªæ¥å£ï¼Œæ‰€ä»¥ç”¨å…¶å®ç°ç±»HashMap
 		}
 		
 		if(cart.containsKey(product)){
-			//²é¿´µ±Ç°¼¯ºÏÖĞÊÇ·ñ´æÔÚbÕâ±¾Êé,Èç¹ûÓĞ¾Í°ÑÊı¾İÈ¡³öÀ´¼Ó1;
+			//æŸ¥çœ‹å½“å‰é›†åˆä¸­æ˜¯å¦å­˜åœ¨bè¿™æœ¬ä¹¦,å¦‚æœæœ‰å°±æŠŠæ•°æ®å–å‡ºæ¥åŠ 1;
 			num = Integer.parseInt(cart.get(product))+1;
 		}
 		
-		cart.put(product, num+"");//°ÑÍ¼Êé·ÅÈë¹ºÎï³µ
+		cart.put(product, num+"");//æŠŠå›¾ä¹¦æ”¾å…¥è´­ç‰©è½¦
 		
-		request.getSession().setAttribute("cart", cart);//°Ñcart¶ÔÏó·Å»Øµ½session×÷ÓÃÓòÖĞ
-		
-		pw.print("<a href='"+request.getContextPath()+"/showProductByPageServlet'>¼ÌĞø¹ºÎï</a>£¬<a href='"+request.getContextPath()+"/cart.jsp'>²é¿´¹ºÎï³µ</a>");
+		request.getSession().setAttribute("cart", cart);//æŠŠcartå¯¹è±¡æ”¾å›åˆ°sessionä½œç”¨åŸŸä¸­
+		response.sendRedirect(request.getContextPath()+"/cartRedirect.jsp");
 
 	}
 

@@ -176,6 +176,13 @@ public class ProductDao {
 		return qr.query("select name from products where name like ?",new ColumnListHandler(),"%"+name+"%");
 	}
 	
+	public List<Product> findProductBySearch(String name) throws SQLException {
+		//根据商品名称模糊查询商品
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		String sql = "select * from products where name like ?";
+		return qr.query(sql, new BeanListHandler<Product>(Product.class),"%"+name+"%");
+	}
+	
 	public void updateProduct(List<OrderItem> list) throws SQLException {
 		//根据订单项更新库存
 		QueryRunner qr = new QueryRunner( );

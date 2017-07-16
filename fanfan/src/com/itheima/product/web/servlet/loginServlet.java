@@ -37,8 +37,8 @@ public class loginServlet extends HttpServlet {
 		try {
 			User user = us.login( username, password);
 			String path = "/index.jsp";
-			request.getSession().setAttribute("user", user); //½«ÓÃ»§ĞÅÏ¢´æÈësession
-			if( "¹ÜÀíÔ±".equals( user.getRole() ) ){
+			request.getSession().setAttribute("user", user); //ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½session
+			if( "ç®¡ç†å‘˜".equals( user.getRole() ) ){
 				path = "/admin/login/home.jsp";
 			}
 			request.getRequestDispatcher(path).forward(request, response);

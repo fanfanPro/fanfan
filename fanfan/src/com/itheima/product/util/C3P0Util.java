@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class C3P0Util {
-	//µÃµ½Ò»¸öÊı¾İÔ´
+	//ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
 	private static DataSource dataSource = new ComboPooledDataSource();
 	
 	
@@ -19,17 +19,17 @@ public class C3P0Util {
 		return dataSource;
 	}
 
-	//´ÓÊı¾İÔ´ÖĞµÃµ½Ò»¸öÁ¬½Ó¶ÔÏó
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ĞµÃµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 	public static Connection getConnection(){
 		try {
 			return dataSource.getConnection();
 		} catch (SQLException e) {
-			throw new RuntimeException("·şÎñÆ÷´íÎó");
+			throw new RuntimeException("æœåŠ¡å™¨é”™è¯¯");
 		}
 	}
 	
 	public static void release(Connection conn,Statement stmt,ResultSet rs){
-		//¹Ø±Õ×ÊÔ´
+		//ï¿½Ø±ï¿½ï¿½ï¿½Ô´
 				if(rs!=null){
 					try {
 						rs.close();
@@ -48,7 +48,7 @@ public class C3P0Util {
 				}
 				if(conn!=null){
 					try {
-						conn.close();//¹Ø±Õ
+						conn.close();//ï¿½Ø±ï¿½
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

@@ -13,38 +13,38 @@ public class SendJMail {
 	
 		public static boolean sendMail(String email, String emailMsg) {
 		
-			String from = "15241190782@163.com"; 				// ÓÊ¼ş·¢ËÍÈËµÄÓÊ¼şµØÖ·
-			String to = email; 										// ÓÊ¼ş½ÓÊÕÈËµÄÓÊ¼şµØÖ·
-			final String username = "15241190782@163.com";  	//·¢¼şÈËµÄÓÊ¼şÕÊ»§
-			final String password = "MINtao2017";   					//·¢¼şÈËµÄÓÊ¼şÃÜÂë
+			String from = "15241190782@163.com"; 				// ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ö·
+			String to = email; 										// ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ö·
+			final String username = "15241190782@163.com";  	//ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ê¼ï¿½ï¿½Ê»ï¿½
+			final String password = "MINtao2017";   					//ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	
-			//¶¨ÒåProperties¶ÔÏó,ÉèÖÃ»·¾³ĞÅÏ¢
+			//ï¿½ï¿½ï¿½ï¿½Propertiesï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			Properties props = new Properties();
 	
-			//ÉèÖÃÓÊ¼ş·şÎñÆ÷µÄµØÖ·
-			props.setProperty("mail.transport.protocol", "smtp");//ÉèÖÃ·¢ËÍÓÊ¼şÊ¹ÓÃµÄĞ­Òé
-			props.setProperty("mail.smtp.host", "smtp.163.com"); // Ö¸¶¨µÄsmtp·şÎñÆ÷
+			//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ö·
+			props.setProperty("mail.transport.protocol", "smtp");//ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ê¹ï¿½Ãµï¿½Ğ­ï¿½ï¿½
+			props.setProperty("mail.smtp.host", "smtp.163.com"); // Ö¸ï¿½ï¿½ï¿½ï¿½smtpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			props.setProperty("mail.smtp.auth", "true");
-			//´´½¨Session¶ÔÏó,session¶ÔÏó±íÊ¾Õû¸öÓÊ¼şµÄ»·¾³ĞÅÏ¢
+			//ï¿½ï¿½ï¿½ï¿½Sessionï¿½ï¿½ï¿½ï¿½,sessionï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			Session session = Session.getInstance(props);
-			//ÉèÖÃÊä³öµ÷ÊÔĞÅÏ¢
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			session.setDebug(true);
 			try {
-				//MessageµÄÊµÀı¶ÔÏó±íÊ¾Ò»·âµç×ÓÓÊ¼ş
+				//Messageï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½
 				MimeMessage message = new MimeMessage(session);
-				//ÉèÖÃ·¢¼şÈËµÄµØÖ·
+				//ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ËµÄµï¿½Ö·
 				message.setFrom(new InternetAddress(from));
-				//ÉèÖÃÖ÷Ìâ
-				message.setSubject("º«ÃôÍø¼¤»î");
-				//ÉèÖÃÓÊ¼şµÄÎÄ±¾ÄÚÈİ
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				message.setSubject("é¥­é¥­ç½‘æ¿€æ´»");
+				//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
 				//message.setText("Welcome to JavaMail World!");
-				message.setContent(emailMsg,"text/html;charset=utf-8");// ×¢²á³É¹¦£¬Çëµã»÷<a href='http://www.product.com?activeCode=ffddff14'>http://localhost:8080/myProduct?activeCode=ffddff14</a>¼¤»îºóµÇÂ¼
-				//´ÓsessionµÄ»·¾³ÖĞ»ñÈ¡·¢ËÍÓÊ¼şµÄ¶ÔÏó
+				message.setContent(emailMsg,"text/html;charset=utf-8");// ×¢ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<a href='http://www.product.com?activeCode=ffddff14'>http://localhost:8080/myProduct?activeCode=ffddff14</a>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
+				//ï¿½ï¿½sessionï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 				Transport transport=session.getTransport();
-				//Á¬½ÓÓÊ¼ş·şÎñÆ÷
+				//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				transport.connect("smtp.163.com",25, username, password);
-				//ÉèÖÃÊÕ¼şÈËµØÖ·,²¢·¢ËÍÏûÏ¢
+				//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ëµï¿½Ö·,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 				transport.sendMessage(message,new Address[]{new InternetAddress(to)});
 				transport.close();
 				return true;

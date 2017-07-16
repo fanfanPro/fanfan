@@ -37,7 +37,7 @@ public class ActiveServlet extends HttpServlet {
 		} catch (UserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			response.getWriter().write(e.getMessage());//ÏëÓÃ»§ÌáÊ¾¼¤»îÊ§°ÜĞÅÏ¢
+			response.getWriter().write(e.getMessage());//æƒ³ç”¨æˆ·æç¤ºæ¿€æ´»å¤±è´¥ä¿¡æ¯
 		}
 	}
 

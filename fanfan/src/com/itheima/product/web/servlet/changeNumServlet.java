@@ -39,11 +39,11 @@ public class changeNumServlet extends HttpServlet {
 		Product b = new Product();
 		b.setId(id);
 		
-		//Èç¹ûÉÌÆ·Êı¾İÎª0£¬¾ÍÉ¾³ı¶ÔÏó
+		//å¦‚æœå•†å“æ•°æ®ä¸º0ï¼Œå°±åˆ é™¤å¯¹è±¡
 		if("0".equals(num)){
 			cart.remove(b);
 		}
-		//ÅĞ¶ÏÈç¹ûÕÒµ½ÓëidÏàÍ¬µÄÊé£¨ProductÖĞÒÑ¾­ÖØĞ´ÁËhashcode()·½·¨£¬ÓëidÏà¹Ø£©
+		//åˆ¤æ–­å¦‚æœæ‰¾åˆ°ä¸idç›¸åŒçš„ä¹¦ï¼ˆProductä¸­å·²ç»é‡å†™äº†hashcode()æ–¹æ³•ï¼Œä¸idç›¸å…³ï¼‰
 		if(cart.containsKey(b)){
 			cart.put(b, num);
 		}		

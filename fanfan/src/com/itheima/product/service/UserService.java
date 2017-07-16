@@ -17,29 +17,29 @@ public class UserService {
 		
 		try {
 			ud.addUser(user);
-			String emailMsg = "×¢²á³É¹¦£¬Çëµã»÷Á´½Ó<a href='http://www.product.com?activeCode="+user.getActiveCode()+"'>http://localhost:8080/myProduct/ActiveServlet?activeCode="+user.getActiveCode()+"</a>¼¤»îºóµÇÂ¼";
+			String emailMsg = "æ³¨å†ŒæˆåŠŸï¼Œè¯·ç‚¹å‡»é“¾æ¥<a href='href='59.110.235.46/myProduct?activeCode="+user.getActiveCode()+"'>http://59.110.235.46/myProduct/ActiveServlet?activeCode="+user.getActiveCode()+"</a>æ¿€æ´»åç™»å½•";
 			SendJMail.sendMail(user.getEmail(),emailMsg);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new UserException("×¢²áÊ§°Ü£¡");
+			throw new UserException("æ³¨å†Œå¤±è´¥ï¼");
 		}
 		
 	}
 
 	public void activeUser(String activeCode) throws UserException {
-		// ¸ù¾İ¼¤»îÂë²éÕÒÓÃ»§£¬²éÕÒµ½Ôò¼¤»î
+		// æ ¹æ®æ¿€æ´»ç æŸ¥æ‰¾ç”¨æˆ·ï¼ŒæŸ¥æ‰¾åˆ°åˆ™æ¿€æ´»
 		User user;
 		try {
 			user = ud.findUserByActiveCode(activeCode);
 			if (user!=null){
-				ud.activeCode(activeCode);//¼¤»îÓÃ»§×´Ì¬
+				ud.activeCode(activeCode);//æ¿€æ´»ç”¨æˆ·çŠ¶æ€
 				return;
 			}
-			throw new UserException("¼¤»îÊ§°Ü£¡");
+			throw new UserException("æ¿€æ´»å¤±è´¥ï¼");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new UserException("¼¤»îÊ§°Ü£¡");
+			throw new UserException("æ¿€æ´»å¤±è´¥ï¼");
 		}
 
 	}
@@ -49,15 +49,15 @@ public class UserService {
 		try {
 			user = ud.findUserByUserameAndPassword( username,password );
 			if( user==null ){
-				throw new UserException("ÓÃ»§Ãû»òÃÜÂë´íÎó£¡");
+				throw new UserException("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼");
 			}
 			if( user.getState()==0 ){
-				throw new UserException("ÄãµÄÕËºÅ»¹Ã»¼¤»î£¬ÇëÇ°ÍùÓÊÏä¼¤»î£¡");
+				throw new UserException("ä½ çš„è´¦å·è¿˜æ²¡æ¿€æ´»ï¼Œè¯·å‰å¾€é‚®ç®±æ¿€æ´»ï¼");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new UserException("µÇÂ¼Ê§°Ü£¡");
+			throw new UserException("ç™»å½•å¤±è´¥ï¼");
 		}
 		return user;
 	}
@@ -69,7 +69,7 @@ public class UserService {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new UserException("ÓÃ»§²éÕÒÊ§°Ü£¡");
+			throw new UserException("ç”¨æˆ·æŸ¥æ‰¾å¤±è´¥ï¼");
 		}
 	}
 
@@ -80,7 +80,7 @@ public class UserService {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new UserException("ĞŞ¸ÄÊ§°Ü£¡");
+			throw new UserException("ä¿®æ”¹å¤±è´¥ï¼");
 		}
 	}
 

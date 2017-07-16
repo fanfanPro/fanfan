@@ -21,18 +21,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ÑéÖ¤ÂëÉú³É³ÌÐò
+ * ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½
  * 
  */
 public class CheckImgServlet extends HttpServlet {
 
-	// ¼¯ºÏÖÐ±£´æËùÓÐ³ÉÓï
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½
 	private List<String> words = new ArrayList<String>();
 
 	@Override
 	public void init() throws ServletException {
-		// ³õÊ¼»¯½×¶Î£¬¶ÁÈ¡new_words.txt
-		// web¹¤³ÌÖÐ¶ÁÈ¡ ÎÄ¼þ£¬±ØÐëÊ¹ÓÃ¾ø¶Ô´ÅÅÌÂ·¾¶
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½×¶Î£ï¿½ï¿½ï¿½È¡new_words.txt
+		// webï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½È¡ ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¾ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		String path = getServletContext().getRealPath("/WEB-INF/new_words.txt");
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
@@ -49,7 +49,7 @@ public class CheckImgServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		// ½ûÖ¹»º´æ
+		// ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 		// response.setHeader("Cache-Control", "no-cache");
 		// response.setHeader("Pragma", "no-cache");
 		// response.setDateHeader("Expires", -1);
@@ -57,54 +57,54 @@ public class CheckImgServlet extends HttpServlet {
 		int width = 120;
 		int height = 30;
 
-		// ²½ÖèÒ» »æÖÆÒ»ÕÅÄÚ´æÖÐÍ¼Æ¬
+		// ï¿½ï¿½ï¿½ï¿½Ò» ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½Í¼Æ¬
 		BufferedImage bufferedImage = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 
-		// ²½Öè¶þ Í¼Æ¬»æÖÆ±³¾°ÑÕÉ« ---Í¨¹ý»æÍ¼¶ÔÏó
-		Graphics graphics = bufferedImage.getGraphics();// µÃµ½»­Í¼¶ÔÏó --- »­±Ê
-		// »æÖÆÈÎºÎÍ¼ÐÎÖ®Ç° ¶¼±ØÐëÖ¸¶¨Ò»¸öÑÕÉ«
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ Í¼Æ¬ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½É« ---Í¨ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
+		Graphics graphics = bufferedImage.getGraphics();// ï¿½Ãµï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ --- ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½Í¼ï¿½ï¿½Ö®Ç° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½É«
 		graphics.setColor(getRandColor(200, 250));
 		graphics.fillRect(0, 0, width, height);
 
-		// ²½ÖèÈý »æÖÆ±ß¿ò
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ±ß¿ï¿½
 		graphics.setColor(Color.WHITE);
 		graphics.drawRect(0, 0, width - 1, height - 1);
 
-		// ²½ÖèËÄ ËÄ¸öËæ»úÊý×Ö
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Graphics2D graphics2d = (Graphics2D) graphics;
-		// ÉèÖÃÊä³ö×ÖÌå
-		graphics2d.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		graphics2d.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
 
-		Random random = new Random();// Éú³ÉËæ»úÊý
+		Random random = new Random();// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int index = random.nextInt(words.size());
-		String word = words.get(index);// »ñµÃ³ÉÓï
+		String word = words.get(index);// ï¿½ï¿½Ã³ï¿½ï¿½ï¿½
 
-		// ¶¨Òåx×ø±ê
+		// ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½
 		int x = 10;
 		for (int i = 0; i < word.length(); i++) {
-			// Ëæ»úÑÕÉ«
+			// ï¿½ï¿½ï¿½ï¿½ï¿½É«
 			graphics2d.setColor(new Color(20 + random.nextInt(110), 20 + random
 					.nextInt(110), 20 + random.nextInt(110)));
-			// Ðý×ª -30 --- 30¶È
+			// ï¿½ï¿½×ª -30 --- 30ï¿½ï¿½
 			int jiaodu = random.nextInt(60) - 30;
-			// »»Ëã»¡¶È
+			// ï¿½ï¿½ï¿½ã»¡ï¿½ï¿½
 			double theta = jiaodu * Math.PI / 180;
 
-			// »ñµÃ×ÖÄ¸Êý×Ö
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½
 			char c = word.charAt(i);
 
-			// ½«c Êä³öµ½Í¼Æ¬
+			// ï¿½ï¿½c ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
 			graphics2d.rotate(theta, x, 20);
 			graphics2d.drawString(String.valueOf(c), x, 20);
 			graphics2d.rotate(-theta, x, 20);
 			x += 30;
 		}
 
-		// ½«ÑéÖ¤ÂëÄÚÈÝ±£´æsession
+		// ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½session
 		request.getSession().setAttribute("checkcode_session", word);
 
-		// ²½ÖèÎå »æÖÆ¸ÉÈÅÏß
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 		graphics.setColor(getRandColor(160, 200));
 		int x1;
 		int x2;
@@ -118,8 +118,8 @@ public class CheckImgServlet extends HttpServlet {
 			graphics.drawLine(x1, y1, x1 + x2, x2 + y2);
 		}
 
-		// ½«ÉÏÃæÍ¼Æ¬Êä³öµ½ä¯ÀÀÆ÷ ImageIO
-		graphics.dispose();// ÊÍ·Å×ÊÔ´
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ImageIO
+		graphics.dispose();// ï¿½Í·ï¿½ï¿½ï¿½Ô´
 		ImageIO.write(bufferedImage, "jpg", response.getOutputStream());
 
 	}
@@ -130,16 +130,16 @@ public class CheckImgServlet extends HttpServlet {
 	}
 
 	/**
-	 * È¡ÆäÄ³Ò»·¶Î§µÄcolor
+	 * È¡ï¿½ï¿½Ä³Ò»ï¿½ï¿½Î§ï¿½ï¿½color
 	 * 
 	 * @param fc
-	 *            int ·¶Î§²ÎÊý1
+	 *            int ï¿½ï¿½Î§ï¿½ï¿½ï¿½ï¿½1
 	 * @param bc
-	 *            int ·¶Î§²ÎÊý2
+	 *            int ï¿½ï¿½Î§ï¿½ï¿½ï¿½ï¿½2
 	 * @return Color
 	 */
 	private Color getRandColor(int fc, int bc) {
-		// È¡ÆäËæ»úÑÕÉ«
+		// È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 		Random random = new Random();
 		if (fc > 255) {
 			fc = 255;

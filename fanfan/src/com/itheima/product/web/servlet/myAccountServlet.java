@@ -35,9 +35,9 @@ public class myAccountServlet extends HttpServlet {
 			response.sendRedirect( request.getContextPath()+"/login.jsp" );
 		}else{
 			String path = null;
-			if("¹ÜÀíÔ±".equals(user.getRole())){
+			if("ç®¡ç†å‘˜".equals(user.getRole())){
 				path = "/admin/login/home.jsp";
-			}else if("ÆÕÍ¨ÓÃ»§".equals(user.getRole())){
+			}else if("æ™®é€šç”¨æˆ·".equals(user.getRole())){
 				path = "/myAccount.jsp";
 			}
 			request.getRequestDispatcher(path).forward(request, response);

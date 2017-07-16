@@ -47,7 +47,7 @@ public class searchEmailServlet extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("²éÕÒemailÒì³£");
+			System.out.println("æŸ¥æ‰¾emailå¼‚å¸¸");
 		}
 	}
 

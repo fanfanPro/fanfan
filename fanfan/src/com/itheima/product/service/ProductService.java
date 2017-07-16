@@ -53,5 +53,17 @@ public class ProductService {
 		}
 		return null;
 	}
+	
+	public List<Product> findProductBySearch(String name) {
+		try {
+			return pd.findProductBySearch(name);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+
 
 }

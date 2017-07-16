@@ -36,20 +36,20 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//´¦ÀíÑéÖ¤Âë
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 		String ckcode = request.getParameter("ckcode");
 		String checkcode = (String) request.getSession().getAttribute("checkcode_session");
 		if( !ckcode.equals(checkcode) ){
-			request.setAttribute("ckcode_msg", "ÑéÖ¤Âë´íÎó£¡");
+			request.setAttribute("ckcode_msg", "éªŒè¯ç é”™è¯¯");
 			request.getRequestDispatcher("/register.jsp").forward(request, response);
-			return; //Èç¹û²»returnÏÂÃæ¼ÌĞøÖ´ĞĞ-----------------------------------------------------------×¢Òâ£¡
+			return; //ï¿½ï¿½ï¿½ï¿½ï¿½returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½-----------------------------------------------------------×¢ï¿½â£¡
 		}
-		//»ñÈ¡±íµ¥
+		//ï¿½ï¿½È¡ï¿½ï¿½
 		User user = new User();
 		try {
-			BeanUtils.populate(user, request.getParameterMap());  //BeanUtils½«Êı¾İÖ±½Ó·â×°µ½User
-			user.setActiveCode(UUID.randomUUID().toString());//ÊÖ¶¯ÉèÖÃ¼¤»îÂë
-			//µ÷ÓÃÒµÎñÂß¼­
+			BeanUtils.populate(user, request.getParameterMap());  //BeanUtilsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó·ï¿½×°ï¿½ï¿½User
+			user.setActiveCode(UUID.randomUUID().toString());//ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½
+			//ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ß¼ï¿½
 			UserService us = new UserService();
 			us.regist( user );
 			request.getRequestDispatcher("/registersuccess.jsp").forward(request, response);

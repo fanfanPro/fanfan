@@ -25,15 +25,15 @@ public class RoleFilter implements Filter{
 		//Ç¿×ª
 		HttpServletRequest request = (HttpServletRequest)req;
 		HttpServletResponse response = (HttpServletResponse)res;
-		//´¦ÀíÒµÎñ
-			//´Ósession°ÑÓÃ»§¶ÔÏóµÃµ½
+		//ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½
+			//ï¿½ï¿½sessionï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½
 			User user = (User) request.getSession().getAttribute("user");
-			if(user==null || !"¹ÜÀíÔ±".equals(user.getRole())){
-				response.getWriter().write("È¨ÏŞ²»×ã£¡");
+			if(user==null || !"ç®¡ç†å‘˜".equals(user.getRole())){
+				response.getWriter().write("æƒé™ä¸è¶³");
 				response.setHeader("refresh", "2,url="+request.getContextPath()+"/index.jsp");
 				return;
 			}
-		//·ÅĞĞ
+		//ï¿½ï¿½ï¿½ï¿½
 			chain.doFilter(request, response);
 	}
 
